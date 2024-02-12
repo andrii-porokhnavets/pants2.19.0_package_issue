@@ -1,0 +1,1 @@
+### A repo to emulate https://github.com/pantsbuild/pants/issues/20515 issue

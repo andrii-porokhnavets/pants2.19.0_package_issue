@@ -1,0 +1,12 @@
+# platform specific
+.DS_Store
+
+# editor specific
+.idea
+
+# Pants workspace files
+/.pants.d/
+/dist/
+/.pids
+/.pants.workdir.file_lock*
+__pycache__/

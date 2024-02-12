@@ -1,0 +1,47 @@
+[GLOBAL]
+pants_version = "2.19.0"
+pants_distdir = "dist/python"
+build_ignore = "bin/dev/**"
+backend_packages = [
+  "pants.core",
+  "pants.backend.python",
+  "pants.backend.google_cloud_function.python",
+  "pants.backend.python.lint.autoflake",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.isort",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.flake8",
+  "pants.backend.python.lint.pyupgrade",
+  "pants.backend.python.typecheck.mypy",
+  "pants.backend.build_files.fmt.black",
+]
+
+[source]
+root_patterns = [
+  "/functions/*",
+]
+
+[python]
+interpreter_constraints = ["==3.11.*"]
+enable_resolves = true
+default_resolve = "default"
+pip_version = "23.0"
+tailor_pex_binary_targets = false
+
+[python.resolves]
+default = "lockfiles/python/default.lock"
+
+[python-bootstrap]
+search_path = ["<ASDF_LOCAL>", "<PATH>"]
+
+[generate-lockfiles]
+diff = true
+
+[anonymous-telemetry]
+enabled = false
+
+[pytest]
+args = ["-vv"]
+
+[pyupgrade]
+args = ["--py311-plus"]
